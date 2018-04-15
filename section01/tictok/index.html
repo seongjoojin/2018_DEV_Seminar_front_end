@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+    function getDegree(num) {
+        return (num/60)*360
+    }
+
+    function rotate() {
+        let date = new Date();
+        let ho =  date.getHours();
+        let min = date.getMinutes();
+        let sec = date.getSeconds();;
+
+        let secEL = document.querySelector(".sec");
+        let minEL = document.querySelector(".min");
+        let hoEL = document.querySelector(".ho");
+
+        secEL.style.transform = `rotate(${sec}deg)` ;
+        minEL.style.transform = `rotate(${min}deg)` ;
+        hoEL.style.transform = `rotate(${ho}deg)` ;
+    }
+
+    setInterval(rotate, 1000)
+    </script>
+    <style>
+        .clock{
+            width:200px;
+            height:200px;
+            background:aqua;
+            border-radius:50%;
+            position: relative;
+        }
+        .hand{
+            position: absolute;
+            width:50%;
+            height:3px;
+            background:black;
+            top:50%;
+            transform-origin: 100%
+        }
+        .sec{
+            height:1px;
+        }
+        .min{
+            width:40%;
+            margin-left:10%
+        }
+        .ho{
+            width: 30%;
+            margin-left:20%;
+        }
+    </style>
+</head>
+<body>
+    <div class="clock">
+        <div class="sec hand"></div>
+        <div class="min hand"></div>
+        <div class="ho hand"></div>
+    </div>
+</body>
+</html>
